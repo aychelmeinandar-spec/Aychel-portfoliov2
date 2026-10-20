@@ -5,11 +5,43 @@ import './style.css';
 
 const githubUrl = 'https://github.com/AychelMeinandar';
 const instagramUrl = 'https://www.instagram.com/aychelgm1/';
+
 const projects = [
-  { no: '01', name: 'Website Toko Online', type: 'E-COMMERCE', description: 'Website toko online untuk menampilkan produk dan membantu pengunjung menjelajahi katalog belanja. Tambahkan fitur dan teknologi spesifik sesuai implementasi proyekmu.', tags: ['E-commerce', 'Product Catalog', 'Web Development'], accent: 'violet', link: githubUrl },
-  { no: '02', name: 'Website Toko Obat', type: 'BUSINESS WEBSITE', description: 'Website toko obat untuk menyajikan informasi toko dan katalog produk dengan struktur yang mudah dijelajahi.', tags: ['Business Website', 'Catalog', 'Responsive UI'], accent: 'blue', link: githubUrl },
-  { no: '03', name: 'Website Rental Mobil', type: 'RENTAL SERVICE', description: 'Website layanan rental mobil untuk menampilkan pilihan kendaraan dan informasi layanan bagi calon pelanggan.', tags: ['Vehicle Catalog', 'Rental Service', 'Web Development'], accent: 'orange', link: githubUrl },
+  {
+    no: '01',
+    name: 'Website Toko Online',
+    type: 'E-COMMERCE',
+    description: 'Website toko online untuk menampilkan produk dan membantu pengunjung menjelajahi katalog belanja. Tambahkan fitur dan teknologi spesifik sesuai implementasi proyekmu.',
+    tags: ['E-commerce', 'Product Catalog', 'Web Development'],
+    accent: 'violet',
+    link: githubUrl,
+    previewUrl: '',
+    sourceUrl: '',
+  },
+  {
+    no: '02',
+    name: 'Website Toko Obat',
+    type: 'BUSINESS WEBSITE',
+    description: 'Website toko obat untuk menyajikan informasi toko dan katalog produk dengan struktur yang mudah dijelajahi.',
+    tags: ['Business Website', 'Catalog', 'Responsive UI'],
+    accent: 'blue',
+    link: githubUrl,
+    previewUrl: "https://penjualanobatberbasisweb.kesug.com/Project-Tugas-Akhir/",
+    sourceUrl: '',
+  },
+  {
+    no: '03',
+    name: 'Website Rental Mobil',
+    type: 'RENTAL SERVICE',
+    description: 'Website layanan rental mobil untuk menampilkan pilihan kendaraan dan informasi layanan bagi calon pelanggan.',
+    tags: ['Vehicle Catalog', 'Rental Service', 'Web Development'],
+    accent: 'orange',
+    link: githubUrl,
+    previewUrl: '',
+    sourceUrl: '',
+  },
 ];
+
 function App() {
   const [light, setLight] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -42,7 +74,7 @@ function App() {
         <div className="hero-bottom"><span>SCROLL TO EXPLORE</span><div className="scroll-line"/><span className="mono">{String(year)}</span></div>
       </section>
       <section id="about" className="about section wrap reveal"><div className="section-label"><span>01 / ABOUT ME</span><span className="label-rule"/></div><div className="about-grid"><h2>Curious mind.<br/><span className="muted-heading">Builder’s mindset.</span></h2><div className="about-content"><p className="large-copy">Aku membangun website yang berfokus pada kebutuhan pengguna—mulai dari toko online hingga website layanan bisnis seperti toko obat dan rental mobil.</p><p>Pengalamanku mencakup pengerjaan website toko online, website toko obat, dan website rental mobil. Aku terus mengasah kemampuan web development dan memperhatikan struktur informasi, kemudahan penggunaan, serta tampilan yang responsif.</p><div className="skill-list"><span>CORE INTERESTS</span><div className="pills"><b>Frontend Development</b><b>UI / UX</b><b>Creative Coding</b><b>Problem Solving</b></div></div></div></div></section>
-      <section id="work" className="work section wrap reveal"><div className="section-label"><span>02 / SELECTED WORK</span><span className="label-rule"/><span className="label-note">A FEW THINGS I’VE BUILT</span></div><div className="work-heading"><h2>Ideas into <span className="gradient-text">reality.</span></h2><p>Tiga proyek website yang pernah aku kerjakan: toko online, toko obat, dan rental mobil. Tautan kartu saat ini mengarah ke profil GitHub; ganti dengan repository atau demo masing-masing proyek jika sudah tersedia.</p></div><div className="project-grid">{projects.map(project => <article className={`project-card ${project.accent}`} key={project.no}><div className="project-top"><span>{project.no} / {project.type}</span><a href={project.link} target="_blank" rel="noreferrer" aria-label={`Lihat ${project.name}`}><ArrowUpRight size={19}/></a></div><div className="project-visual"><div className="mock-window"><div className="window-bar"><i/><i/><i/><span>{project.name.toLowerCase()}.app</span></div><div className="mock-content"><div className="mock-sidebar"><b>A.</b><i/><i/><i/></div><div className="mock-main"><div className="mock-title"/><div className="mock-subtitle"/><div className="mock-blocks"><i/><i/><i/></div><div className="mock-line"/><div className="mock-line short"/></div></div></div><div className="visual-glow"/></div><div className="project-info"><h3>{project.name}</h3><p>{project.description}</p><div className="tag-row">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div></article>)}</div><p className="project-note"><Sparkles size={15}/> Tautan proyek saat ini mengarah ke profil GitHub. Perbarui ke repository atau demo spesifik untuk setiap proyek jika sudah dipublikasikan.</p></section>
+      <section id="work" className="work section wrap reveal"><div className="section-label"><span>02 / SELECTED WORK</span><span className="label-rule"/><span className="label-note">A FEW THINGS I’VE BUILT</span></div><div className="work-heading"><h2>Ideas into <span className="gradient-text">reality.</span></h2><p>Tiga proyek website yang pernah aku kerjakan: toko online, toko obat, dan rental mobil. Demo dan source code akan ditautkan di sini setelah masing-masing proyek dipublikasikan.</p></div><div className="project-grid">{projects.map(project => <article className={`project-card ${project.accent}`} key={project.no}><div className="project-top"><span>{project.no} / {project.type}</span><a href={project.previewUrl || project.sourceUrl || project.link} target="_blank" rel="noopener noreferrer" aria-label={`Buka ${project.name}`}><ArrowUpRight size={19}/></a></div><div className="project-visual"><div className="mock-window"><div className="window-bar"><i/><i/><i/><span>{project.name.toLowerCase()}.app</span></div><div className="mock-content"><div className="mock-sidebar"><b>A.</b><i/><i/><i/></div><div className="mock-main"><div className="mock-title"/><div className="mock-subtitle"/><div className="mock-blocks"><i/><i/><i/></div><div className="mock-line"/><div className="mock-line short"/></div></div></div><div className="visual-glow"/></div><div className="project-info"><h3>{project.name}</h3><p>{project.description}</p><div className="tag-row">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div><div className="project-actions">{project.previewUrl ? <a className="project-btn project-btn-primary" href={project.previewUrl} target="_blank" rel="noreferrer">Live Preview <ArrowUpRight size={15}/></a> : <span className="project-btn project-btn-disabled" aria-disabled="true">Live Preview · Segera hadir</span>}{project.sourceUrl ? <a className="project-btn project-btn-secondary" href={project.sourceUrl} target="_blank" rel="noreferrer"><Github size={15}/> Source Code</a> : <span className="project-btn project-btn-disabled" aria-disabled="true">Source Code · Segera hadir</span>}</div></div></article>)}</div><p className="project-note"><Sparkles size={15}/> Tautan demo dan source code tersedia sesuai proyek yang sudah dipublikasikan.</p></section>
       <section className="stack section wrap reveal"><div className="section-label"><span>03 / TOOLKIT</span><span className="label-rule"/></div><div className="stack-row"><h2>Tools & capabilities.</h2><div className="stack-items"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Git & GitHub</span><span>Responsive Design</span></div></div></section>
       <section id="contact" className="contact section wrap reveal"><div className="section-label"><span>04 / CONTACT</span><span className="label-rule"/></div><div className="contact-panel"><div className="contact-orb"/><span className="eyebrow">HAVE A PROJECT IN MIND?</span><h2>Let’s make something<br/><span className="gradient-text">meaningful.</span></h2><p>Punya ide, kesempatan kolaborasi, atau sekadar ingin ngobrol soal teknologi? Kirim pesan, yuk.</p><a className="button primary" href="mailto:aychelmeinandar@gmail.com">Say hello <ArrowUpRight size={17}/></a><span className="contact-deco mono">0101 / LET’S BUILD</span></div><div className="contact-links"><span>ELSEWHERE ON THE INTERNET</span><a href={githubUrl} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={15}/></a><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram <ArrowUpRight size={15}/></a><a href="mailto:aychelmeinandar@gmail.com">Email <ArrowUpRight size={15}/></a></div></section>
     </main>
