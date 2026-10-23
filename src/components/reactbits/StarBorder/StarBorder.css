@@ -1,0 +1,78 @@
+.star-border-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 999px;
+  padding: var(--border-thickness, 1.5px);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  isolation: isolate;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.star-border-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(181, 139, 106, 0.3);
+}
+
+.star-border-glow-1,
+.star-border-glow-2 {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.star-border-glow-1 {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    var(--star-color, #b58b6a) 60deg,
+    #ffffff 90deg,
+    var(--star-color, #b58b6a) 120deg,
+    transparent 180deg
+  );
+  animation: star-border-rotate var(--star-speed, 3.5s) linear infinite;
+}
+
+.star-border-glow-2 {
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    transparent 0deg,
+    var(--star-color, #b58b6a) 60deg,
+    #ffffff 90deg,
+    var(--star-color, #b58b6a) 120deg,
+    transparent 180deg
+  );
+  animation: star-border-rotate var(--star-speed, 3.5s) linear infinite;
+}
+
+@keyframes star-border-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.star-border-content {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--bg, #211e1a);
+}
