@@ -1,0 +1,20 @@
+.blur-text-root {
+  display: inline-block;
+}
+
+.blur-text-element {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(var(--offset-y, -18px));
+  transition: opacity 0.55s cubic-bezier(0.2, 0.65, 0.3, 0.9),
+              filter 0.55s cubic-bezier(0.2, 0.65, 0.3, 0.9),
+              transform 0.55s cubic-bezier(0.2, 0.65, 0.3, 0.9);
+  will-change: opacity, filter, transform;
+}
+
+.blur-text-element.is-visible {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
