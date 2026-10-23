@@ -7,15 +7,15 @@ export const GMAIL_COMPOSE_URL =
 export const PROJECTS = [
   {
     no: "01",
-    name: "Website Toko Online",
-    type: "E-COMMERCE",
+    name: "Website Agent Ai",
+    type: "Agent Ai",
     description:
-      "Website toko online untuk menampilkan produk dan membantu pengunjung menjelajahi katalog belanja. Tambahkan fitur dan teknologi spesifik sesuai implementasi proyekmu.",
-    tags: ["E-commerce", "Product Catalog", "Web Development"],
+      "Website AI Agent interaktif yang membantu pengguna mendapatkan jawaban, berdiskusi, dan menyelesaikan kebutuhan melalui percakapan berbasis kecerdasan buatan.",
+    tags: ["Artificial Intelligence", "Gemini API", "Web Development"],
     accent: "violet",
-    image: "/project-ecommerce.jpg",
+    image: "/project-tugasin.png",
     link: GITHUB_URL,
-    previewUrl: "",
+    previewUrl: "https://tugasin-web.vercel.app/",
     sourceUrl: "",
   },
   {
@@ -26,7 +26,7 @@ export const PROJECTS = [
       "Website toko obat untuk menyajikan informasi toko dan katalog produk dengan struktur yang mudah dijelajahi.",
     tags: ["Business Website", "Catalog", "Responsive UI"],
     accent: "blue",
-    image: "/project-pharmacy.jpg",
+    image: "/project-website_obat.png",
     link: GITHUB_URL,
     previewUrl:
       "https://penjualanobatberbasisweb.kesug.com/Project-Tugas-Akhir/",
