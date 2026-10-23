@@ -1,0 +1,31 @@
+.decrypted-text-root {
+  display: inline-block;
+  cursor: default;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
+.decrypted-text-content {
+  display: inline-block;
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.decrypted-char {
+  display: inline;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+.decrypted-scramble-char {
+  display: inline;
+  color: var(--accent, #b58b6a);
+  font-family: var(--mono, 'IBM Plex Mono', monospace);
+  font-weight: 600;
+  opacity: 0.95;
+  text-shadow: 0 0 6px rgba(181, 139, 106, 0.45);
+}
