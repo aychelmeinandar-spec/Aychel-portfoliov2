@@ -1,0 +1,455 @@
+.lanyard-wrapper {
+  position: relative;
+  width: 350px;
+  height: 480px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+/* SVG Strap */
+.lanyard-strap-svg {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
+/* Badge Anchor holding clamp + card */
+.lanyard-badge-anchor {
+  position: absolute;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: 50% 0%;
+  z-index: 2;
+  transition: transform 0.05s linear;
+}
+
+/* Metallic Clamp / Buckle */
+.lanyard-clamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: -10px;
+  z-index: 4;
+}
+
+.lanyard-buckle {
+  width: 32px;
+  height: 28px;
+  background: linear-gradient(180deg, #332d27 0%, #1c1815 100%);
+  border: 1px solid rgba(226, 211, 192, 0.2);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.lanyard-buckle-icon {
+  font-size: 14px;
+  color: #e9e0d4;
+  opacity: 0.9;
+}
+
+.lanyard-clip-metal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lanyard-clip-ring {
+  width: 14px;
+  height: 14px;
+  border: 2.5px solid #a89d91;
+  border-radius: 50%;
+  background: transparent;
+  margin-top: -3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.lanyard-clip-hook {
+  width: 10px;
+  height: 18px;
+  background: linear-gradient(135deg, #d8cec4 0%, #7d7266 100%);
+  border-radius: 3px 3px 6px 6px;
+  margin-top: -4px;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* Card Container 3D */
+.lanyard-card-container {
+  position: relative;
+  width: 240px;
+  height: 350px;
+  transform-style: preserve-3d;
+  cursor: grab;
+  border-radius: 16px;
+  transition: transform 0.15s ease-out;
+}
+
+.lanyard-card-container:active {
+  cursor: grabbing;
+}
+
+.lanyard-card-container.is-flipped {
+  /* Flipped state handled via 3D rotation in JSX */
+}
+
+/* Both Card Faces */
+.lanyard-card-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 45px -10px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+/* Front Face: Clean crisp white badge like ReactBits demo */
+.lanyard-card-front {
+  background: linear-gradient(160deg, #fbf9f6 0%, #ebe4d8 100%);
+  color: #1a1816;
+}
+
+/* Back Face */
+.lanyard-card-back {
+  background: linear-gradient(160deg, #24201c 0%, #151311 100%);
+  color: #e9e0d4;
+  transform: rotateY(180deg);
+  border: 1px solid rgba(181, 139, 106, 0.3);
+}
+
+/* Glare highlight overlay */
+.lanyard-card-glare {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.4) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+}
+
+/* Punch Hole at top of Card */
+.lanyard-hole-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.lanyard-hole {
+  width: 38px;
+  height: 8px;
+  border-radius: 999px;
+  background: #1a1816;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.lanyard-card-back .lanyard-hole {
+  background: #0d0c0b;
+}
+
+/* Card Header */
+.lanyard-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.lanyard-brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono, 'IBM Plex Mono', monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #5a4f43;
+}
+
+.lanyard-atom-icon {
+  font-size: 13px;
+  color: #b58b6a;
+}
+
+.lanyard-id-number {
+  font-family: var(--mono, 'IBM Plex Mono', monospace);
+  font-size: 9px;
+  color: #8c7e70;
+}
+
+/* Photo Frame */
+.lanyard-photo-frame {
+  position: relative;
+  width: 100%;
+  height: 165px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #dfd7cb;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+.lanyard-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.lanyard-photo-scanline {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Info Section */
+.lanyard-info {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.lanyard-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: #1a1816;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: -0.02em;
+}
+
+.lanyard-verified {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #b58b6a;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.lanyard-role {
+  font-size: 11px;
+  color: #7d7265;
+  margin: 2px 0 0;
+  font-family: var(--mono, 'IBM Plex Mono', monospace);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Card Footer */
+.lanyard-card-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.12);
+}
+
+.lanyard-barcode {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 18px;
+}
+
+.lanyard-barcode span {
+  width: 1.5px;
+  height: 100%;
+  background: #2a2520;
+}
+
+.lanyard-barcode span:nth-child(2n) {
+  width: 2.5px;
+}
+
+.lanyard-barcode span:nth-child(3n) {
+  width: 1px;
+}
+
+.lanyard-chip-code {
+  font-family: var(--mono, 'IBM Plex Mono', monospace);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  color: #7d7265;
+}
+
+/* Drag Hint */
+.lanyard-drag-hint {
+  text-align: center;
+  margin-top: 4px;
+}
+
+.lanyard-drag-hint span {
+  font-family: var(--mono, 'IBM Plex Mono', monospace);
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  color: #9c8e80;
+  animation: lanyardHintPulse 2s ease-in-out infinite;
+}
+
+@keyframes lanyardHintPulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.95; }
+}
+
+/* BACK FACE STYLING */
+.lanyard-back-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.lanyard-back-title {
+  font-family: var(--mono, 'IBM Plex Mono', monospace);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--accent, #b58b6a);
+  font-weight: 700;
+}
+
+.lanyard-back-status {
+  font-size: 8px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(115, 226, 174, 0.15);
+  color: #73e2ae;
+  border: 1px solid rgba(115, 226, 174, 0.3);
+}
+
+.lanyard-back-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  border: 1px solid rgba(226, 211, 192, 0.1);
+  margin-bottom: 14px;
+}
+
+.lanyard-gold-chip {
+  width: 32px;
+  height: 24px;
+  background: linear-gradient(135deg, #d4af37 0%, #aa8012 100%);
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.lanyard-chip-text {
+  font-family: var(--mono, 'IBM Plex Mono', monospace);
+  font-size: 9px;
+  color: var(--text-muted, #95897c);
+  letter-spacing: 0.06em;
+}
+
+.lanyard-back-details {
+  flex: 1;
+}
+
+.lanyard-back-quote {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-secondary, #c1b5a6);
+  font-style: italic;
+  margin: 0 0 12px;
+}
+
+.lanyard-back-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.lanyard-back-tags span {
+  font-size: 9px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(181, 139, 106, 0.1);
+  border: 1px solid rgba(181, 139, 106, 0.25);
+  color: var(--accent-soft, #d0b69a);
+}
+
+.lanyard-back-actions {
+  margin-top: auto;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.lanyard-modal-btn {
+  padding: 8px 14px;
+  background: var(--text, #e9e0d4);
+  color: var(--bg, #211e1a);
+  border: none;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.lanyard-modal-btn:hover {
+  background: var(--accent-soft, #d0b69a);
+  transform: translateY(-2px);
+}
+
+/* Mobile responsive */
+@media (max-width: 800px) {
+  .lanyard-wrapper {
+    width: 290px;
+    height: 420px;
+    margin-top: 20px;
+  }
+
+  .lanyard-card-container {
+    width: 220px;
+    height: 320px;
+  }
+
+  .lanyard-photo-frame {
+    height: 145px;
+  }
+}
