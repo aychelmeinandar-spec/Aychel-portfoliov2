@@ -1,4 +1,4 @@
-export const GITHUB_URL = "https://github.com/Aychel Gusti Meinandar";
+export const GITHUB_URL = "https://github.com/aychelmeinandar-spec";
 export const INSTAGRAM_URL = "https://www.instagram.com/aychel_gm/";
 export const EMAIL_ADDRESS = "aychelmeinandar@gmail.com";
 export const GMAIL_COMPOSE_URL =
