@@ -34,15 +34,15 @@ export const PROJECTS = [
   },
   {
     no: "03",
-    name: "Website Rental Mobil",
-    type: "RENTAL SERVICE",
+    name: "EchoTic - Website Tiket Konser",
+    type: "CONCERT TICKETING PLATFORM",
     description:
-      "Website layanan rental mobil untuk menampilkan pilihan kendaraan dan informasi layanan bagi calon pelanggan.",
-    tags: ["Vehicle Catalog", "Rental Service", "Web Development"],
+      "Platform pemesanan tiket konser digital yang dirancang untuk memberikan pengalaman pembelian tiket yang modern, interaktif, dan aman. EchoTic menghadirkan eksplorasi konser, pemilihan tiket, visualisasi tiket 3D, serta sistem validasi tiket untuk memudahkan pengguna menikmati pengalaman konser tanpa batas.",
+    tags: ["Concert Ticketing"],
     accent: "orange",
-    image: "/project-rental.jpg",
+    image: "/project-tiket.konser.png",
     link: GITHUB_URL,
-    previewUrl: "",
+    previewUrl: "https://echotic-rho.vercel.app/",
     sourceUrl: "",
   },
 ];
